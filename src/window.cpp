@@ -29,7 +29,7 @@ bool BasebandRecorderApp::OnInit()
         sdrLabel->SetFont(font);
     }
     samplerateLabel = new wxStaticText((wxFrame *)sdrPanel, 0, "Samplerate (Hz)", wxPoint(5, 30));
-#if BUILD_AIRSPY || BUILD_HACKRF || BUILD_LIME
+#if BUILD_AIRSPY || BUILD_HACKRF || BUILD_LIME || BUILD_SOAPY
     samplerateEntry = new wxTextCtrl((wxFrame *)sdrPanel, 0, "6000000", wxPoint(5, 55));
 #endif
 #if BUILD_RTLSDR
@@ -60,7 +60,11 @@ bool BasebandRecorderApp::OnInit()
     gainValueLabel = new wxStaticText((wxFrame *)settingsPanel, 0, "49", wxPoint(85, 70));
     gainSlider = new wxSlider((wxFrame *)settingsPanel, GAIN_SLIDER_ID, 49, 0, 49, wxPoint(105, 70), wxSize(200, 20));
 #endif
-
+#if BUILD_SOAPY
+    gainValueLabel = new wxStaticText((wxFrame *)settingsPanel, 0, "49", wxPoint(85, 70));
+    gainSlider = new wxSlider((wxFrame *)settingsPanel, GAIN_SLIDER_ID, 49, 0, 100, wxPoint(105, 70), wxSize(200, 20));
+    
+#endif
 #if BUILD_HACKRF || BUILD_RTLSDR
     gainValueLabel = new wxStaticText((wxFrame *)settingsPanel, 0, "49", wxPoint(85, 70));
     gainSlider = new wxSlider((wxFrame *)settingsPanel, GAIN_SLIDER_ID, 49, 0, 49, wxPoint(105, 70), wxSize(200, 20));

@@ -40,6 +40,12 @@
 #include <lime/ConnectionRegistry.h>
 #endif
 
+#if BUILD_SOAPY
+#include <SoapySDR/Device.hpp>
+#include <SoapySDR/Types.hpp>
+#include <SoapySDR/Formats.hpp>
+#endif
+
 #if BUILD_HACKRF
 #include <libhackrf/hackrf.h>
 #endif

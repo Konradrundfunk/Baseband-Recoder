@@ -37,6 +37,13 @@ static void _rtlsdr_callback(unsigned char *buf, uint32_t len, void *ctx)
     ((libdsp::Pipe<std::complex<float>> *)ctx)->push((std::complex<float> *)rtlsdr_read_buffer, len / 2);
 }
 #endif
+//note that always the first device is called 
+#if BUILD_SOAPY
+	
+    //SoapySDR::Kwargs args = "SDRplay Dev0 RSP1A 200601BE97";
+    //SoapySDR::Device *sdr = SoapySDR::Device::make(args);
+
+#endif
 
 void BasebandRecorderApp::initBuffers()
 {

@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.0)
 
 option(BUILD_LIME "Build the program with LimeSDR support" OFF)
+option(BUILD_SOAPY "Build the program with SoapySDR support" OFF)
 option(BUILD_AIRSPY "Build the program with LimeSDR support" OFF)
 option(BUILD_HACKRF "Build the program with HackRF support" OFF)
 option(BUILD_RTLSDR "Build the program with RTLSDR support" OFF)
