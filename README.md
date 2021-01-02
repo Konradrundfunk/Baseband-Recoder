@@ -24,3 +24,4 @@ Currently, support SDRs are :
 - RTLSDR
 - LimeSDR and LimeSDR Mini
 - HackRF
+- Soapysdr(hopefully)
