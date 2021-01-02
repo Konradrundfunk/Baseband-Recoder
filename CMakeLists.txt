@@ -44,23 +44,6 @@ endif()
 
 if(BUILD_SOAPY)
     find_package(SoapySDR CONFIG)
-    include_directories(${SOAPY_SDR_INCLUDE_DIR})
-    SET(OTHER_LIBRARIES ${SOAPY_SDR_LIBRARY} ${OTHER_LIBRARIES})
-    ADD_DEFINITIONS(
-        -DUSE_SOAPY_SDR=1
-)       
-
-    if (NOT SoapySDR_FOUND)
-        message(WARNING "SoapySDR development files not found - skipping support")
-        return()
-    endif ()
-
-    include_directories(${MY_DEVICE_INCLUDE_DIRS})
-    SOAPY_SDR_MODULE_UTIL(
-        TARGET MyDevice
-        SOURCES MyDeviceSupport.cpp
-        LIBRARIES ${MY_DEVICE_LIBRARIES}
-    )
     add_compile_definitions(BUILD_AIRSPY=0)
     add_compile_definitions(BUILD_SOAPY=1)
     add_compile_definitions(BUILD_LIME=0)
